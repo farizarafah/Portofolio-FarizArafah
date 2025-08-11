@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portofolio Fariz - Behance Style</title>
+<style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
+    body { background: #f5f5f5; color: #333; }
+
+    header { background: white; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 100; }
+    header h1 { font-size: 1.4rem; color: #0057ff; }
+    nav ul { display: flex; list-style: none; }
+    nav ul li { margin-left: 20px; }
+    nav a { text-decoration: none; color: #333; font-weight: 500; }
+    nav a:hover { color: #0057ff; }
+
+    .hero { text-align: center; padding: 2rem; background: white; margin-bottom: 1rem; border-bottom: 1px solid #ddd; }
+    .hero h2 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero p { color: #555; max-width: 600px; margin: auto; }
+
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1rem; padding: 1rem 2rem; }
+    .card { background: white; border-radius: 6px; overflow: hidden; position: relative; cursor: pointer; box-shadow: 0 1px 4px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; display: block; }
+    .card-info { padding: 0.8rem 1rem; }
+    .card-info h3 { font-size: 1rem; margin-bottom: 0.3rem; }
+    .card-info p { font-size: 0.9rem; color: #777; }
+
+    .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.5); color: white; display: flex; flex-direction: column; justify-content: flex-end; opacity: 0; transition: opacity 0.3s ease; padding: 1rem; }
+    .card:hover .overlay { opacity: 1; }
+    .overlay h3 { margin-bottom: 0.3rem; }
+    .overlay p { font-size: 0.85rem; color: #ddd; }
+
+    /* Popup */
+    .popup { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 999; animation: fadeIn 0.3s ease; }
+    .popup-content { background: white; border-radius: 8px; max-width: 800px; width: 90%; padding: 1.5rem; position: relative; animation: slideUp 0.3s ease; text-align: center; }
+    .popup-content img { max-width: 100%; border-radius: 6px; margin-bottom: 1rem; }
+    .popup-content h3 { margin-bottom: 0.5rem; }
+    .popup-content p { color: #555; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.5rem; cursor: pointer; color: #333; }
+    .nav-btn { position: absolute; top: 50%; transform: translateY(-50%); font-size: 2rem; background: rgba(255,255,255,0.8); border: none; cursor: pointer; padding: 0.5rem 1rem; border-radius: 50%; }
+    .prev-btn { left: 10px; }
+    .next-btn { right: 10px; }
+
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+    footer { text-align: center; padding: 1.5rem; font-size: 0.9rem; color: #777; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>Fariz Arafah</h1>
+    <nav>
+        <ul>
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#portfolio">Portofolio</a></li>
+            <li><a href="http://wa.me/085719207168">Hubungi Saya</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h2>Halo, saya Fariz 👋</h2>
+    <p>Graphic Designer & Web Enthusiast. Menyajikan karya terbaik dalam desain, fotografi, dan web interaktif.</p>
+</section>
+
+<section id="portfolio">
+    <div class="grid">
+        <div class="card" 
+            data-title="Project 1" 
+            data-category="Branding & Logo Design" 
+            data-desc="Deskripsi lengkap project 1." 
+            data-images="Artboard 1.webp">
+            <img src="Artboard 1.webp" alt="Project 1">
+            <div class="overlay"><h3>Rebranding Super Presto</h3><p>Branding & Logo Design</p></div>
+            <div class="card-info"><h3>Rebranding Super Presto</h3><p>Branding & Logo Design</p></div>
+        </div>
+
+        <div class="card" 
+            data-title="Project 2" 
+            data-category="UI/UX Website" 
+            data-desc="Deskripsi lengkap project 2." 
+            data-images="Artboard 6.webp">
+            <img src="Artboard 6.webp" alt="Project 2">
+            <div class="overlay"><h3>Project 2</h3><p>UI/UX Website</p></div>
+            <div class="card-info"><h3>Project 2</h3><p>UI/UX Website</p></div>
+        </div>
+
+       
+
+        <div class="card" 
+            data-title="Project 3" 
+            data-category="UI/UX Website" 
+            data-desc="Deskripsi lengkap project 2." 
+            data-images="Artboard 2.webp">
+            <img src="Artboard 2.webp" alt="Project 2">
+            <div class="overlay"><h3>PT Adidaya</h3><p>Company Profile </p></div>
+            <div class="card-info"><h3>PT Adidaya</h3><p>Company Profile </p></div>
+        </div>
+
+
+        
+         <div class="card" 
+            data-title="Project 2" 
+            data-category="UI/UX Website" 
+            data-desc="Deskripsi lengkap project 2." 
+            data-images="Artboard 4.webp">
+            <img src="Artboard 4.webp" alt="Project 2">
+            <div class="overlay"><h3>Project 4</h3><p>UI/UX Website</p></div>
+            <div class="card-info"><h3>Project 4</h3><p>UI/UX Website</p></div>
+        </div>
+
+        <div class="card" 
+            data-title="Project 2" 
+            data-category="UI/UX Website" 
+            data-desc="Deskripsi lengkap project 2." 
+            data-images="Artboard 5.webp">
+            <img src="Artboard 5.webp" alt="Project 2">
+            <div class="overlay"><h3>Project 4</h3><p>UI/UX Website</p></div>
+            <div class="card-info"><h3>Project 4</h3><p>UI/UX Website</p></div>
+        </div>
+
+ 
+
+         <div class="card" 
+            data-title="Project 2" 
+            data-category="UI/UX Website" 
+            data-desc="Deskripsi lengkap project 2." 
+            data-images="Artboard 3.webp">
+            <img src="Artboard 3.webp" alt="Project 2">
+            <div class="overlay"><h3>Project 2</h3><p>UI/UX Website</p></div>
+            <div class="card-info"><h3>Project 2</h3><p>UI/UX Website</p></div>
+        </div>
+    </div>
+</section>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <span class="close-btn" id="closePopup">&times;</span>
+        <button class="nav-btn prev-btn" id="prevBtn">&#10094;</button>
+        <img id="popupImg" src="" alt="">
+        <button class="nav-btn next-btn" id="nextBtn">&#10095;</button>
+        <h3 id="popupTitle"></h3>
+        <p><em id="popupCategory"></em></p>
+        <p id="popupDesc"></p>
+    </div>
+</div>
+
+<footer>
+    © 2025 Fariz Arafah. All rights reserved.
+</footer>
+
+<script>
+    const cards = document.querySelectorAll('.card');
+    const popup = document.getElementById('popup');
+    const closePopup = document.getElementById('closePopup');
+    const popupImg = document.getElementById('popupImg');
+    const popupTitle = document.getElementById('popupTitle');
+    const popupCategory = document.getElementById('popupCategory');
+    const popupDesc = document.getElementById('popupDesc');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let images = [];
+    let currentIndex = 0;
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            images = card.dataset.images.split(',');
+            currentIndex = 0;
+            popupImg.src = images[currentIndex];
+            popupTitle.textContent = card.dataset.title;
+            popupCategory.textContent = card.dataset.category;
+            popupDesc.textContent = card.dataset.desc;
+            popup.style.display = 'flex';
+        });
+    });
+
+    prevBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        popupImg.src = images[currentIndex];
+    });
+
+    nextBtn.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % images.length;
+        popupImg.src = images[currentIndex];
+    });
+
+    closePopup.addEventListener('click', () => {
+        popup.style.display = 'none';
+    });
+
+    popup.addEventListener('click', (e) => {
+        if (e.target === popup) {
+            popup.style.display = 'none';
+        }
+    });
+</script>
+
+</body>
+</html>
